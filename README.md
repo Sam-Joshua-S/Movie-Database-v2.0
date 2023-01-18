@@ -16,6 +16,15 @@ This project utilizes the Natural Language Processing (NLP) capabilities of the 
 - In pipeline configuration, add a deploy action and select the appropriate cluster and namespace.
 - You can trigger the pipeline manually or configure it to trigger automatically when there is a new commit in the connected repository.
 
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  ibmcloud ce application create --name moviesapp --build-source https://github.com/Sam-Joshua-S/Movie-Database-v2.0.git --image us.icr.io/${SN_ICR_NAMESPACE}/moviesapp --registry-secret icr-secret --env NLU_APIKEY=8yS0uFjVRsCvQ################ --env NLU_URL=https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/#################### --env CLOUDANT_URL=https://apikey-v2-########################-60336fbafb1a-bluemix.cloudantnosqldb.appdomain.cloud --env CLOUDANT_USERNAME=apikey-v2-1############################### --env CLOUDANT_PASSWORD=##############################
+```
+
+
 # Limitations
 - The NLU service has a limit on the number of requests that can be made per month. Be sure to monitor usage to avoid going over this limit.
 - The sentiment analysis provided by the NLU service is determined by the overall sentiment of the text, not the sentiment towards specific entities or concepts mentioned in the text.
